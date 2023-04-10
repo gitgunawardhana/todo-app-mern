@@ -34,19 +34,13 @@ function Main() {
         <div className="mb-3 mt-9 bg-transparent">
           <SubHeadingTitle>Features</SubHeadingTitle>
           <ParaText className="my-1 bg-transparent text-left text-slate-500 antialiased dark:text-slate-400">
-            - Task organization and prioritization
+            - Create tasks.
           </ParaText>
           <ParaText className="my-1 bg-transparent text-left text-slate-500 antialiased dark:text-slate-400">
-            - Collaborative task management with team members
+            - Update tasks.
           </ParaText>
           <ParaText className="my-1 bg-transparent text-left text-slate-500 antialiased dark:text-slate-400">
-            - Reminders and due dates
-          </ParaText>
-          <ParaText className="my-1 bg-transparent text-left text-slate-500 antialiased dark:text-slate-400">
-            - Custom project labels and filters
-          </ParaText>
-          <ParaText className="my-1 bg-transparent text-left text-slate-500 antialiased dark:text-slate-400">
-            - Automatic task syncing across devices
+            - Delete tasks.
           </ParaText>
         </div>
         <div className="mb-3 mt-9 bg-transparent">
