@@ -16,11 +16,12 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:5500/api/item/642b02ac7747447ad643161a
+PUT http://localhost:5500/api/item/64344aa9523dd9ccbbab6ffd
 Content-Type: application/json
 
 {
-  "item": "This is the seventh todo item"
+  "item": "Renew car registration",
+  "isCompleted": false
 }
 
 ###

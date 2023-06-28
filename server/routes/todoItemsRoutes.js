@@ -32,8 +32,12 @@ router.route("/").get(async (req, res) => {
 router.route("/:id").put(async (req, res) => {
   try {
     const id = req.params.id;
-    const { item } = req.body;
-    const updateTodo = await TodoItem.findByIdAndUpdate(id, { item });
+    const { item, isCompleted } = req.body;
+    console.log(item);
+    const updateTodo = await TodoItem.findByIdAndUpdate(id, {
+      item,
+      isCompleted,
+    });
     res.status(200).json({ success: true, data: updateTodo });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });

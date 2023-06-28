@@ -17,7 +17,9 @@ const RenderTodo = ({ data, title }) => {
         {isUpdating === todo._id ? (
           <UpdateForm />
         ) : (
-          <TodoItem id={todo._id}>{todo.item}</TodoItem>
+          <TodoItem id={todo._id} isCompleted={todo.isCompleted}>
+            {todo.item}
+          </TodoItem>
         )}
       </div>
     ));
