@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { twMerge } from "tailwind-merge";
 import DropdownButton from "../../base-components/DropdownButton";
 import { darkModeSetup, getDarkModeOptionList } from "../../darkModeUtils";
+import DropdownOptions from "../DropdownOptions";
 import { ProviderContext } from "../Provider";
-import SwitchDropdownButton from "./SwitchDropdownButton";
 
 const DarkModeSwitch = (props) => {
   const { theme, setTheme } = useContext(ProviderContext);
@@ -14,16 +14,20 @@ const DarkModeSwitch = (props) => {
 
   return (
     <>
-      <div className={twMerge(["z-50 w-fit p-0", props.className])}>
+      <div
+        className={twMerge(["z-50 w-fit p-0", props.className])}
+        title="Change theme"
+      >
         <DropdownButton
+          id="themeChange"
           icon={currentOptionIcon}
           items={darkModeOptionList}
-          className=""
-          buttonClassName="z-50 bg-transparent dark:bg-transparent focus:ring-0 focus:outline-none text-center inline-flex items-center hover:bg-transparent dark:hover:bg-transparent"
+          buttonClassName="relative z-50 bg-transparent dark:bg-transparent focus:ring-0 focus:outline-none text-center inline-flex items-center hover:bg-transparent dark:hover:bg-transparent"
+          className="absolute -top-32 left-2"
         >
           {darkModeOptionList?.map((item) => (
             <DropdownButton.LI key={item.text} className="group z-50 w-fit">
-              <SwitchDropdownButton
+              <DropdownOptions
                 onClick={() => {
                   setTheme(item.text);
                 }}
