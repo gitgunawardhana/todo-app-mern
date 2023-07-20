@@ -17,8 +17,8 @@ const RenderTodo = ({ data, title }) => {
         {isUpdating === todo._id ? (
           <UpdateForm />
         ) : (
-          <TodoItem id={todo._id} isCompleted={todo.isCompleted}>
-            {todo.item}
+          <TodoItem id={todo._id} isCompleted={todo.completed}>
+            {todo.title}
           </TodoItem>
         )}
       </div>
@@ -36,8 +36,20 @@ const Main = () => {
   const fetchTodos = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:5500/api/item");
-      setTodoList(res.data.data.reverse());
+      const token = sessionStorage.getItem("access_token");
+
+      const headers = {
+        Authentication: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
+        access_token: token,
+        "Content-Type": "application/json",
+      };
+
+      const res = await axios.get(`http://localhost:8000/api/tasks/myTasks`, {
+        headers: headers,
+      });
+
+      setTodoList(res.data.reverse());
     } catch (err) {
       Swal.fire({
         position: "center",
