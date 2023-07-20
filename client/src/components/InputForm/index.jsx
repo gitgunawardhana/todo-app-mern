@@ -17,11 +17,23 @@ const InputForm = () => {
     setLoading(true);
     if (itemText) {
       try {
-        const data = {
-          item: itemText,
+        const token = sessionStorage.getItem("access_token");
+
+        const headers = {
+          Authentication: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
+          access_token: token,
+          "Content-Type": "application/json",
         };
-        const res = await axios.post("http://localhost:5500/api/item", data);
-        setTodoList((prev) => [res.data.data, ...prev]);
+
+        const data = {
+          title: itemText,
+        };
+        const res = await axios.post("http://localhost:8000/api/tasks/", data, {
+          headers: headers,
+        });
+
+        setTodoList((prev) => [res.data, ...prev]);
         setItemText("");
         Swal.fire({
           position: "center",
