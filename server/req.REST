@@ -1,30 +1,113 @@
-GET http://localhost:5500
+#todoapp (USER) - api set start
 
-###
-
-GET http://localhost:5500/api/item
-Content-Type: application/json
-
-###
-
-POST http://localhost:5500/api/item
+### User Register
+POST http://localhost:8000/api/auth/register
 Content-Type: application/json
 
 {
-  "item": "This is the seventh todo item"
+    "name":"Test User",
+    "email": "test@gmail.com",
+    "password": "test123",
+    "avatar": "Base64 of image"
 }
-
 ###
 
-PUT http://localhost:5500/api/item/64344aa9523dd9ccbbab6ffd
+### User Login
+POST http://localhost:8000/api/auth/login
 Content-Type: application/json
 
 {
-  "item": "Renew car registration",
-  "isCompleted": false
+    "email": "test@gmail.com",
+    "password": "test123"
 }
-
 ###
 
-DELETE http://localhost:5500/api/item/6432535ec73081d8b72c182e
+### Update user info
+PUT http://localhost:8000/api/users/me
 Content-Type: application/json
+
+{
+    "name": "Updated Test User",
+    "email": "updatedtest@gmail.com",
+    "avatar": "Updated Base64 of image"
+}
+###
+
+### Get User info 1
+GET http://localhost:8000/api/users/me
+Content-Type: application/json
+###
+
+### Get User info 2:(same as 1)
+GET http://localhost:8000/api/users/me/info/
+Content-Type: application/json
+###
+
+### User Logout
+POST http://localhost:8000/api/auth/logout
+Content-Type: application/json
+###
+
+### Check if the user is logged in
+GET http://localhost:8000/api/auth/is_logged_in
+Content-Type: application/json
+###
+
+#todoapp (USER) - api set end
+
+####################################
+
+
+####################################
+
+
+####################################
+
+#todoapp (Task) - api set start
+
+### Create a new Task
+POST http://localhost:8000/api/tasks
+Content-Type: application/json
+
+{
+    "title": "Test Task",
+    "completed": false
+}
+###
+
+### Get all Tasks related to current user
+GET http://localhost:8000/api/tasks/myTasks
+Content-Type: application/json
+###
+
+### Get all Tasks related to all users
+GET http://localhost:8000/api/tasks/all
+Content-Type: application/json
+###
+
+### Update a Task
+PUT http://localhost:8000/api/tasks/64b8f8b5a85becac24010ad3
+Content-Type: application/json
+
+{
+    "title": "Updated Test Task",
+    "completed": false
+}
+###
+
+### Delete a Task
+DELETE http://localhost:8000/api/tasks/64b8f8b5a85becac24010ad3
+Content-Type: application/json
+
+{
+    "title": "Updated Test Task",
+    "completed": false
+}
+###
+
+### Delete all Task
+DELETE http://localhost:8000/api/tasks/deleteAll
+Content-Type: application/json
+###
+
+#todoapp (Task) - api set end
