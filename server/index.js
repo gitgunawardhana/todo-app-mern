@@ -1,32 +1,44 @@
+import cookieParser from "cookie-parser";
 import cors from "cors";
-import * as dotenv from "dotenv";
+import "dotenv/config";
 import express from "express";
-import connectDB from "./mongodb/connect.js";
-import todoItemsRoutes from "./routes/todoItemsRoutes.js";
+import mongoose from "mongoose";
+import morgan from "morgan";
+import allRoutes from "./routes/index.js";
 
-dotenv.config();
+const PORT = process.env.PORT || 8000;
 const app = express();
+
+// middleware
+app.use(cors());
+app.use(morgan("tiny"));
+app.use(cookieParser());
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(express.json());
 
-const PORT = process.env.PORT;
+// routes
+app.use("/api", allRoutes);
 
-app.use(cors());
+// error handler
+app.use((err, req, res, next) => {
+  const status = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
 
-app.use("/api/item", todoItemsRoutes);
-
-app.get("/", async (req, res) => {
-  res.send("Hello from Todo app!");
+  return next(res.status(status).json({ message, stack: err.stack }));
 });
 
-const startServer = async () => {
+const connectDB = async () => {
   try {
-    connectDB(process.env.MONGODB_URL);
-    app.listen(PORT, () => {
-      console.log("Server has started on port http://localhost:5500");
-    });
-  } catch (error) {
-    console.log(error);
+    await mongoose.connect(process.env.DB_CONNECTION_STRING);
+    console.log("MongoDB Connected");
+  } catch (err) {
+    console.log(err);
+    process.exit(1);
   }
 };
 
-startServer();
+app.listen(PORT, () => {
+  connectDB();
+  console.log(`Server is running on port ${PORT}`);
+});
