@@ -1,19 +1,25 @@
 {
-  "name": "todo-app",
+  "name": "server",
   "version": "1.0.0",
-  "description": "A todo app",
-  "type": "module",
   "main": "index.js",
-  "scripts": {
-    "start": "nodemon index.js",
-    "test": "jest"
-  },
+  "type": "module",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mongoose": "^7.0.3",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.3.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.44.0",
     "nodemon": "^2.0.22"
   }
 }
