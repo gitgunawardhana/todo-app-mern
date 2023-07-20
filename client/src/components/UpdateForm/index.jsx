@@ -16,7 +16,7 @@ const UpdateForm = () => {
     (item) => item._id === isUpdating
   );
   const [updatedItemText, setUpdatedItemText] = useState(
-    todoList[updatedItemIndex].item
+    todoList[updatedItemIndex].title
   );
 
   // Update a Todo
@@ -25,14 +25,27 @@ const UpdateForm = () => {
     setLoadingUpdate(true);
     if (updatedItemText) {
       try {
+        const token = sessionStorage.getItem("access_token");
+
+        const headers = {
+          Authentication: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
+          access_token: token,
+          "Content-Type": "application/json",
+        };
+
         const data = {
-          item: updatedItemText,
+          title: updatedItemText,
         };
         const res = await axios.put(
-          `http://localhost:5500/api/item/${id}`,
-          data
+          `http://localhost:8000/api/tasks/${id}`,
+          data,
+          {
+            headers: headers,
+          }
         );
-        todoList[updatedItemIndex].item = updatedItemText;
+
+        todoList[updatedItemIndex].title = updatedItemText;
         setUpdatedItemText("");
         setIsUpdating("");
         Swal.fire({
