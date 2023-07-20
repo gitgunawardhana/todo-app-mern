@@ -20,7 +20,17 @@ const TodoItem = (props) => {
   const deleteTodo = async (id) => {
     setLoadingDelete(true);
     try {
-      const res = await axios.delete(`http://localhost:5500/api/item/${id}`);
+      const token = sessionStorage.getItem("access_token");
+
+      const headers = {
+        Authentication: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
+        access_token: token,
+        "Content-Type": "application/json",
+      };
+      const res = await axios.delete(`http://localhost:8000/api/tasks/${id}`, {
+        headers: headers,
+      });
       setTodoList(todoList.filter((todo) => todo._id !== id));
       Swal.fire({
         position: "center",
@@ -52,15 +62,30 @@ const TodoItem = (props) => {
     const updatedItemIndex = todoList.findIndex((item) => item._id === id);
 
     try {
-      const data = {
-        isCompleted: true,
+      const token = sessionStorage.getItem("access_token");
+
+      const headers = {
+        Authentication: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
+        access_token: token,
+        "Content-Type": "application/json",
       };
-      const res = await axios.put(`http://localhost:5500/api/item/${id}`, data);
-      console.log(res.data.success);
+
+      const data = {
+        completed: true,
+      };
+      const res = await axios.put(
+        `http://localhost:8000/api/tasks/${id}`,
+        data,
+        {
+          headers: headers,
+        }
+      );
+
       if (res.data.success) {
         setIsCompletedTemp(true);
       }
-      todoList[updatedItemIndex].isCompleted = true;
+      todoList[updatedItemIndex].completed = true;
       Swal.fire({
         position: "center",
         icon: "success",
