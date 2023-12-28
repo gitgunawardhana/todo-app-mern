@@ -34,9 +34,12 @@ const Provider = (props) => {
         "Content-Type": "application/json",
       };
 
-      const res = await axios.get(`http://localhost:8000/api/users/me/info/`, {
-        headers: headers,
-      });
+      const res = await axios.get(
+        `https://todo-app-mern-5dc7.onrender.com/api/users/me/info/`,
+        {
+          headers: headers,
+        }
+      );
 
       setUser({
         name: res.data.name,

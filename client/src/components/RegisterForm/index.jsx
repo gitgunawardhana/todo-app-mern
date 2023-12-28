@@ -36,7 +36,7 @@ const LoginForm = () => {
     };
     try {
       const res = await axios.post(
-        `http://localhost:8000/api/auth/register`,
+        `https://todo-app-mern-5dc7.onrender.com/api/auth/register`,
         userData
       );
 

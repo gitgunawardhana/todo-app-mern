@@ -45,9 +45,12 @@ const Main = () => {
         "Content-Type": "application/json",
       };
 
-      const res = await axios.get(`http://localhost:8000/api/tasks/myTasks`, {
-        headers: headers,
-      });
+      const res = await axios.get(
+        `https://todo-app-mern-5dc7.onrender.com/api/tasks/myTasks`,
+        {
+          headers: headers,
+        }
+      );
 
       setTodoList(res.data.reverse());
     } catch (err) {

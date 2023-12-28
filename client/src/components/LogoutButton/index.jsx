@@ -16,7 +16,9 @@ const LogoutButton = (props) => {
   const logout = async () => {
     setLoadingLogout(true);
     try {
-      const res = await axios.post(`http://localhost:8000/api/auth/logout`);
+      const res = await axios.post(
+        `https://todo-app-mern-5dc7.onrender.com/api/auth/logout`
+      );
       if (res.data.message === "logout success") {
         sessionStorage.clear();
         setToken(null);

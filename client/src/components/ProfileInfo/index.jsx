@@ -59,7 +59,7 @@ const ProfileInfo = () => {
       console.log(updatedUser);
 
       const res = await axios.put(
-        `http://localhost:8000/api/users/me`,
+        `https://todo-app-mern-5dc7.onrender.com/api/users/me`,
         updatedUser,
         {
           headers: headers,
@@ -109,7 +109,7 @@ const ProfileInfo = () => {
           title: updatedItemText,
         };
         const res = await axios.put(
-          `http://localhost:8000/api/tasks/${id}`,
+          `https://todo-app-mern-5dc7.onrender.com/api/tasks/${id}`,
           data,
           {
             headers: headers,

@@ -28,9 +28,12 @@ const TodoItem = (props) => {
         access_token: token,
         "Content-Type": "application/json",
       };
-      const res = await axios.delete(`http://localhost:8000/api/tasks/${id}`, {
-        headers: headers,
-      });
+      const res = await axios.delete(
+        `https://todo-app-mern-5dc7.onrender.com/api/tasks/${id}`,
+        {
+          headers: headers,
+        }
+      );
       setTodoList(todoList.filter((todo) => todo._id !== id));
       Swal.fire({
         position: "center",
@@ -75,7 +78,7 @@ const TodoItem = (props) => {
         completed: true,
       };
       const res = await axios.put(
-        `http://localhost:8000/api/tasks/${id}`,
+        `https://todo-app-mern-5dc7.onrender.com/api/tasks/${id}`,
         data,
         {
           headers: headers,

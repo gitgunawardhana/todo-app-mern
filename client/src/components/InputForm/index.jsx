@@ -29,9 +29,13 @@ const InputForm = () => {
         const data = {
           title: itemText,
         };
-        const res = await axios.post("http://localhost:8000/api/tasks/", data, {
-          headers: headers,
-        });
+        const res = await axios.post(
+          "https://todo-app-mern-5dc7.onrender.com/api/tasks/",
+          data,
+          {
+            headers: headers,
+          }
+        );
 
         setTodoList((prev) => [res.data, ...prev]);
         setItemText("");
