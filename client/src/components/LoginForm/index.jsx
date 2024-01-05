@@ -40,7 +40,7 @@ const LoginForm = () => {
         showConfirmButton: false,
         timer: 5000,
       });
-      navigate("/");
+      navigate("/todo-app-mern");
     } catch (err) {
       try {
         if (err.response.data.message === "User not found with the email") {

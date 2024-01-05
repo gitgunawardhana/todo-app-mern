@@ -24,7 +24,7 @@ function App() {
     <div className="bg-[#FEFEFE] dark:bg-[#1B253B]">
       <BrowserRouter>
         <HeaderSection>
-          <Link to="/">Task Wise</Link>
+          <Link to="/todo-app-mern">Task Wise</Link>
         </HeaderSection>
         <ContentSection height={windowSize.height}>
           <Router />

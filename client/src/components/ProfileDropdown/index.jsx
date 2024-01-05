@@ -33,7 +33,7 @@ const ProfileDropdown = () => {
     {
       icon: homeSvg,
       text: "Home",
-      to: "/",
+      to: "/todo-app-mern",
     },
     {
       icon: profileSvg,
