@@ -13,7 +13,7 @@ function Router() {
       element: <PrivateRoutes />,
       children: [
         {
-          path: "/",
+          path: "/todo-app-mern",
           element: <Home />,
         },
         {
