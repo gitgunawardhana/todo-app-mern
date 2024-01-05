@@ -31,7 +31,7 @@ function App() {
         </ContentSection>
         <FooterSection>
           {`© ${FooterText.CURRENT_YEAR} `}
-          <Link to="/about">{`${FooterText.WEBSITE_NAME}`}</Link>
+          <Link to="/todo-app-mern/about">{`${FooterText.WEBSITE_NAME}`}</Link>
           {`. All rights reserved.`}
         </FooterSection>
         <DarkModeSwitch className="fixed bottom-0" />

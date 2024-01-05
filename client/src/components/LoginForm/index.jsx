@@ -119,7 +119,7 @@ const LoginForm = () => {
                   >
                     Login
                   </Button>
-                  <NavLink to="/register">
+                  <NavLink to="/todo-app-mern/register">
                     <Button className="bg-[#f59e0b] hover:bg-[#fbbf24] active:!bg-[#fbbf24] dark:bg-[#fbbf24] dark:text-[#232D45] hover:dark:bg-[#fcd34d]">
                       Register
                     </Button>

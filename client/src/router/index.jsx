@@ -17,7 +17,7 @@ function Router() {
           element: <Home />,
         },
         {
-          path: "/profile",
+          path: "/todo-app-mern/profile",
           element: <Profile />,
         },
         {
@@ -30,11 +30,11 @@ function Router() {
       element: <PrivateRouteInverse />,
       children: [
         {
-          path: "/login",
+          path: "/todo-app-mern/login",
           element: <Login />,
         },
         {
-          path: "/register",
+          path: "/todo-app-mern/register",
           element: <Register />,
         },
         {
@@ -44,7 +44,7 @@ function Router() {
       ],
     },
     {
-      path: "/about",
+      path: "/todo-app-mern/about",
       element: <About />,
     },
   ];

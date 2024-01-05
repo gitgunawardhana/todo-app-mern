@@ -50,7 +50,7 @@ const LoginForm = () => {
           showConfirmButton: false,
           timer: 5000,
         });
-        navigate("/login");
+        navigate("/todo-app-mern/login");
       }
     } catch (err) {
       Swal.fire({
@@ -155,7 +155,7 @@ const LoginForm = () => {
                   >
                     Register
                   </Button>
-                  <NavLink to="/login">
+                  <NavLink to="/todo-app-mern/login">
                     <Button className="bg-[#f59e0b] hover:bg-[#fbbf24] active:!bg-[#fbbf24] dark:bg-[#fbbf24] dark:text-[#232D45] hover:dark:bg-[#fcd34d]">
                       Login
                     </Button>

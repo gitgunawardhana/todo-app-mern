@@ -36,7 +36,7 @@ const LogoutButton = (props) => {
           showConfirmButton: false,
           timer: 5000,
         });
-        navigate("/login");
+        navigate("/todo-app-mern/login");
       }
     } catch (err) {
       console.log(err);
