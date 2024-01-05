@@ -20,6 +20,10 @@ function Router() {
           path: "/profile",
           element: <Profile />,
         },
+        {
+          path: "/*",
+          element: <Home />,
+        },
       ],
     },
     {
@@ -33,15 +37,15 @@ function Router() {
           path: "/register",
           element: <Register />,
         },
+        {
+          path: "/*",
+          element: <Login />,
+        },
       ],
     },
     {
       path: "/about",
       element: <About />,
-    },
-    {
-      path: "/*",
-      element: <Home />,
     },
   ];
   return useRoutes(routes);
