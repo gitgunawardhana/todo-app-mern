@@ -39,6 +39,10 @@ function Router() {
       path: "/about",
       element: <About />,
     },
+    {
+      path: "/*",
+      element: <Home />,
+    },
   ];
   return useRoutes(routes);
 }
